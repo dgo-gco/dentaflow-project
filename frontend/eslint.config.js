@@ -8,9 +8,8 @@ export default defineConfig([
     files: ["**/*.{js,mjs,cjs,jsx}"],
     plugins: { js },
     extends: ["js/recommended"],
-    languageOptions: { globals: globals.browser },
+    languageOptions: { globals: globals.browser, sourceType: "module" },
   },
-  { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
   // Add Jest globals for test files
   {
     files: [
