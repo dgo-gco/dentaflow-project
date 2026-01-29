@@ -53,7 +53,7 @@ jobs:
 
       - name: Test frontend (Vitest + coverage)
         working-directory: frontend
-        run: npm run test -- --coverage
+        run: npm run test --coverage
 
       # SONARCLOUD
       - name: SonarCloud Scan
