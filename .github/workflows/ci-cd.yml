@@ -67,8 +67,10 @@ jobs:
         working-directory: frontend
         run: npm audit --audit-level=high
 
-      # REVIEW DÉPENDANCES
+      # REVIEW DÉPENDANCES (only runs on pull requests)
+      # Not a good practice, better to add another yml for this
       - name: Dependency vulnerability scan
+        if: github.event_name == 'pull_request'
         uses: actions/dependency-review-action@v3
 
   docker-build:
