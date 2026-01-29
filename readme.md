@@ -10,7 +10,7 @@ DentaFlow est une application de gestion de cabinet dentaire, utilisée comme su
 
 Le projet est organisé en **monorepo** avec séparation claire entre backend et frontend.
 
-```
+```text
 .
 ├── backend/
 │   ├── src/
