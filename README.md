@@ -10,7 +10,7 @@ DentaFlow est une application de gestion de cabinet dentaire, utilisée comme su
 
 Le projet est organisé en **monorepo** avec séparation claire entre backend et frontend.
 
-\\\
+```text
 .
 ├── backend/
 │   ├── src/
@@ -39,15 +39,15 @@ Le projet est organisé en **monorepo** avec séparation claire entre backend et
 │   └── workflows/
 │       └── ci-cd.yml
 └── .gitignore
-\\\
+```
 
 | Composant | Description |
 |-----------|-------------|
-| \ackend/\ | API REST en Python (FastAPI), accès base de données, logique métier |
-| \rontend/\ | Application React (Vite), interface utilisateur |
-| \docker-compose.yml\ | Orchestration des services (PostgreSQL, Redis, backend, frontend) |
-| \.github/workflows/ci-cd.yml\ | Pipeline CI/CD (lint, tests, scan, build d'images) |
-| \sonar-project.properties\ | Configuration de la plateforme de qualité |
+| `backend/` | API REST en Python (FastAPI), accès base de données, logique métier |
+| `frontend/` | Application React (Vite), interface utilisateur |
+| `docker-compose.yml` | Orchestration des services (PostgreSQL, Redis, backend, frontend) |
+| `.github/workflows/ci-cd.yml` | Pipeline CI/CD (lint, tests, scan, build d'images) |
+| `sonar-project.properties` | Configuration de la plateforme de qualité |
 
 ---
 
@@ -93,32 +93,32 @@ Le projet est organisé en **monorepo** avec séparation claire entre backend et
 
 ### 3.2 Cloner le dépôt
 
-\\\ash
+```bash
 git clone git@github.com:VOTRE-USERNAME/dentaflow-project.git
 cd dentaflow-project
-\\\
+```
 
 ### 3.3 Backend (Python – FastAPI)
 
-\\\ash
+```bash
 cd backend
 python3 -m venv venv
-source venv/bin/activate  # Windows : venv\\Scripts\\activate
+source venv/bin/activate  # Windows : venv\Scripts\activate
 pip install --upgrade pip
 pip install -r requirements.txt
-\\\
+```
 
 Copie le fichier d'exemple d'environnement :
 
-\\\ash
+```bash
 cp .env.example .env
-\\\
+```
 
 Lance le serveur :
 
-\\\ash
+```bash
 python3 -m uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload
-\\\
+```
 
 | Endpoint | URL |
 |----------|-----|
@@ -128,11 +128,11 @@ python3 -m uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload
 
 ### 3.4 Frontend (React – Vite)
 
-\\\ash
+```bash
 cd frontend
 npm install
 npm run dev
-\\\
+```
 
 | Endpoint | URL |
 |----------|-----|
@@ -140,9 +140,9 @@ npm run dev
 
 ### 3.5 Exécution via Docker Compose
 
-\\\ash
+```bash
 docker-compose up --build
-\\\
+```
 
 | Service | URL |
 |---------|-----|
@@ -157,7 +157,7 @@ docker-compose up --build
 
 ### 4.1 Backend
 
-\\\ash
+```bash
 cd backend
 
 # Lint
@@ -165,11 +165,11 @@ flake8 src tests
 
 # Tests + couverture
 pytest --cov=src --cov-report=term-missing
-\\\
+```
 
 ### 4.2 Frontend
 
-\\\ash
+```bash
 cd frontend
 
 # Lint
@@ -177,20 +177,20 @@ npm run lint
 
 # Tests + couverture
 npm run test
-\\\
+```
 
 ---
 
 ## 🔄 5. CI/CD
 
-Pipeline configuré dans \.github/workflows/ci-cd.yml\
+Pipeline configuré dans `.github/workflows/ci-cd.yml`
 
 ### 5.1 Déclencheurs
 
 | Événement | Branches |
 |-----------|----------|
-| \push\ | \main\, \develop\ |
-| \pull_request\ | \main\ |
+| `push` | `main`, `develop` |
+| `pull_request` | `main` |
 
 ### 5.2 Jobs
 
@@ -207,21 +207,21 @@ Pipeline configuré dans \.github/workflows/ci-cd.yml\
 - ✅ Build de l'image Docker frontend
 
 #### 🚀 deploy-staging
-- Se déclenche sur la branche \develop\
+- Se déclenche sur la branche `develop`
 - Simule un déploiement vers staging
 
 ### 5.3 Secrets
 
 | Secret | Description |
 |--------|-------------|
-| \SONAR_TOKEN\ | Token d'authentification SonarCloud |
-| \GITHUB_TOKEN\ | Fourni automatiquement par GitHub |
+| `SONAR_TOKEN` | Token d'authentification SonarCloud |
+| `GITHUB_TOKEN` | Fourni automatiquement par GitHub |
 
 ---
 
 ## 🔒 6. Bonnes pratiques & sécurité
 
-- ✅ Fichiers \.env\ et secrets exclus via \.gitignore\
+- ✅ Fichiers `.env` et secrets exclus via `.gitignore`
 - ✅ Logs applicatifs non versionnés
 - ✅ Linting strict et règles de sécurité JavaScript
 - ✅ Analyse de qualité et sécurité automatisée
@@ -233,16 +233,16 @@ Pipeline configuré dans \.github/workflows/ci-cd.yml\
 
 | Action | Commande |
 |--------|----------|
-| Backend local | \cd backend && python3 -m uvicorn src.api.main:app --reload\ |
-| Frontend local | \cd frontend && npm run dev\ |
-| Docker (tous services) | \docker-compose up --build\ |
-| Lint backend | \cd backend && flake8 src tests\ |
-| Tests backend | \cd backend && pytest --cov=src\ |
-| Lint frontend | \cd frontend && npm run lint\ |
-| Tests frontend | \cd frontend && npm run test\ |
+| Backend local | `cd backend && python3 -m uvicorn src.api.main:app --reload` |
+| Frontend local | `cd frontend && npm run dev` |
+| Docker (tous services) | `docker-compose up --build` |
+| Lint backend | `cd backend && flake8 src tests` |
+| Tests backend | `cd backend && pytest --cov=src` |
+| Lint frontend | `cd frontend && npm run lint` |
+| Tests frontend | `cd frontend && npm run test` |
 
 ---
 
 ## 📄 License
 
-MIT © DentaFlow Team
+MIT © DentaFlow Team (Johan DELEM - Diego GARCIA)
