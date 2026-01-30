@@ -245,4 +245,4 @@ Pipeline configuré dans `.github/workflows/ci-cd.yml`
 
 ## 📄 License
 
-MIT © DentaFlow Team (Johan DELEM, Diego GARCIA)
+MIT © DentaFlow Team (Johan DELEM - Diego GARCIA)
